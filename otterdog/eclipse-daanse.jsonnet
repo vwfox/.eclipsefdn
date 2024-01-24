@@ -17,16 +17,45 @@ orgs.newOrg('eclipse-daanse') {
     },
   },
   _repositories+:: [
-    orgs.newRepo('demo-repository') {
-      allow_forking: false,
-      allow_merge_commit: true,
+    orgs.newRepo('org.eclipse.daanse.common') {
+      allow_merge_commit: false,
+      allow_rebase_merge: true,
+      allow_squash_merge: false,
       allow_update_branch: false,
       delete_branch_on_merge: false,
-      dependabot_alerts_enabled: false,
-      description: "A code repository designed to show the best GitHub has to offer.",
+      dependabot_alerts_enabled: true,
+      dependabot_security_updates_enabled: true,
+      description: "Repository for the common modules",
       has_wiki: false,
-      private: true,
-      web_commit_signoff_required: false,
+      private: false,
+      web_commit_signoff_required: true,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          requires_pull_request: true,
+          required_approving_review_count: 1,
+          required_status_checks+: [],
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+          requires_commit_signatures: true,
+        },
+      ],
+    },
+    orgs.newRepo('eclipse-daanse.github.io') {
+      allow_merge_commit: false,
+      allow_rebase_merge: true,
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      gh_pages_build_type: "legacy",
+      gh_pages_source_branch: "main",
+      gh_pages_source_path: "/",
+      environments: [
+        orgs.newEnvironment('github-pages') {
+          branch_policies+: [
+            "main"
+          ],
+          deployment_branch_policy: "selected",
+        },
+      ],
     },
   ],
 }
