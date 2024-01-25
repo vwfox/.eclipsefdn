@@ -12,11 +12,6 @@ orgs.newOrg('eclipse-daanse') {
       actions_can_approve_pull_request_reviews: false,
     },
   },
-  secrets+: [
-    orgs.newOrgSecret('SONAR_TOKEN') {
-      value: "pass:bots/technology.daanse/sonarcloud.io/token",
-    },
-  ],
   _repositories+:: [
     orgs.newRepo('eclipse-daanse.github.io') {
       allow_squash_merge: false,
@@ -40,6 +35,11 @@ orgs.newOrg('eclipse-daanse') {
       dependabot_security_updates_enabled: true,
       description: "Repository for the common modules",
       has_wiki: false,
+      secrets: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "pass:bots/technology.daanse/sonarcloud.io/token-eclipse-daanse-common",
+        },
+      ],
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
           required_approving_review_count: 0,
