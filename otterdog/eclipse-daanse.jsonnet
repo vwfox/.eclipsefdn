@@ -39,6 +39,12 @@ orgs.newOrg('eclipse-daanse') {
         orgs.newRepoSecret('SONAR_TOKEN') {
           value: "pass:bots/technology.daanse/sonarcloud.io/token-eclipse-daanse-common",
         },
+        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
+          value: "eclipse-daanse_org.eclipse.daanse.common",
+        },
+        orgs.newRepoVariable('SONAR_ORGANIZATION') {
+          value: "eclipse-daanse",
+        },
       ],
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
