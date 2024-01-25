@@ -42,7 +42,7 @@ orgs.newOrg('eclipse-daanse') {
       has_wiki: false,
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 1,
+          required_approving_review_count: 0,
           requires_commit_signatures: true,
           requires_linear_history: true,
           requires_strict_status_checks: true,
