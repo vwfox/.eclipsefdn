@@ -12,6 +12,23 @@ orgs.newOrg('eclipse-daanse') {
       actions_can_approve_pull_request_reviews: false,
     },
   },
+  secrets+: [
+    orgs.newOrgSecret('ORG_GPG_PASSPHRASE') {
+      value: "pass:bots/technology.daanse/gpg/passphrase",
+    },
+    orgs.newOrgSecret('ORG_GPG_PRIVATE_KEY') {
+      value: "pass:bots/technology.daanse/gpg/secret-subkeys.asc",
+    },
+    orgs.newOrgSecret('ORG_GPG_KEY_ID') {
+      value: "pass:bots/technology.daanse/gpg/key_id",
+    },
+    orgs.newOrgSecret('ORG_OSSRH_PASSWORD') {
+      value: "pass:bots/technology.daanse/oss.sonatype.org/password",
+    },
+    orgs.newOrgSecret('ORG_OSSRH_USERNAME') {
+      value: "pass:bots/technology.daanse/oss.sonatype.org/username",
+    },
+  ],
   _repositories+:: [
     orgs.newRepo('eclipse-daanse.github.io') {
       allow_squash_merge: false,
@@ -39,6 +56,8 @@ orgs.newOrg('eclipse-daanse') {
         orgs.newRepoSecret('SONAR_TOKEN') {
           value: "pass:bots/technology.daanse/sonarcloud.io/token-eclipse-daanse-common",
         },
+      ],
+      variables: [
         orgs.newRepoVariable('SONAR_PROJECT_KEY') {
           value: "eclipse-daanse_org.eclipse.daanse.common",
         },
