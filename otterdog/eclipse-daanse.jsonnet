@@ -13,14 +13,17 @@ orgs.newOrg('eclipse-daanse') {
     },
   },
   secrets+: [
+    orgs.newOrgSecret('DASH_IPLAB_TOKEN') {
+      value: "pass:bots/technology.daanse/gitlab.eclipse.org/api-token",
+    },
+    orgs.newOrgSecret('ORG_GPG_KEY_ID') {
+      value: "pass:bots/technology.daanse/gpg/key_id",
+    },
     orgs.newOrgSecret('ORG_GPG_PASSPHRASE') {
       value: "pass:bots/technology.daanse/gpg/passphrase",
     },
     orgs.newOrgSecret('ORG_GPG_PRIVATE_KEY') {
       value: "pass:bots/technology.daanse/gpg/secret-subkeys.asc",
-    },
-    orgs.newOrgSecret('ORG_GPG_KEY_ID') {
-      value: "pass:bots/technology.daanse/gpg/key_id",
     },
     orgs.newOrgSecret('ORG_OSSRH_PASSWORD') {
       value: "pass:bots/technology.daanse/oss.sonatype.org/password",
@@ -58,11 +61,11 @@ orgs.newOrg('eclipse-daanse') {
         },
       ],
       variables: [
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.common",
-        },
         orgs.newRepoVariable('SONAR_ORGANIZATION') {
           value: "eclipse-daanse",
+        },
+        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
+          value: "eclipse-daanse_org.eclipse.daanse.common",
         },
       ],
       branch_protection_rules: [
