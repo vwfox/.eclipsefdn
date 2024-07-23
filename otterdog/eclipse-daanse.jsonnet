@@ -107,14 +107,18 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.jakarta.servlet') {
       description: "Repository for the jakarta servlet related modules",
     },
-    newDaanseRepo('org.eclipse.daanse.jdbc.datasource.metatype.h2') {
-      description: "Repository for the datasoure metatype support for h2",
+    newDaanseRepo('org.eclipse.daanse.jdbc.datasource') {
+      aliases: ['org.eclipse.daanse.jdbc.datasource.metatype.h2'],
+      description: "Repository for the datasource support",
     },
     newDaanseRepo('org.eclipse.daanse.jdbc.db') {
       description: "Repository for the jdbc related database utils",
     },
     newDaanseRepo('org.eclipse.daanse.jdbc.loader.csv') {
       description: "Repository for the jdbc dataloader from csv",
+    },
+    newDaanseRepo('org.eclipse.daanse.mdx') {
+      description: "Repository for the mdx - multi dimensional expressions",
     },
     newDaanseRepo('org.eclipse.daanse.pom') {
       description: "Repository for the maven poms",
