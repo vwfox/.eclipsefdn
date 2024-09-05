@@ -88,6 +88,9 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.emf.dbmapping') {
       description: "Repository for the emf dbmapping related modules",
     },
+    newDaanseRepo('org.eclipse.daanse.index') {
+      description: "Repository for the index related modules",
+    },
     newDaanseRepo('org.eclipse.daanse.io.fs.watcher') {
       description: "Repository for the io watcher",
     },
