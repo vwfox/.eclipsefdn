@@ -73,6 +73,50 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('.github') {
       description: "github organisation repository, defaults for all other daanse Repositories",
     },
+    newDaanseRepo('legacy.dashboard.client') {
+      allow_merge_commit: true,
+      allow_squash_merge: true,
+      code_scanning_default_setup_enabled: true,
+      code_scanning_default_languages: [
+        'javascript',
+        'javascript-typescript',
+        'typescript'
+      ],
+      gh_pages_build_type: "workflow",
+      has_wiki: true,
+      homepage: null,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 1,
+          required_status_checks: [],
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
+    newDaanseRepo('legacy.xmla') {
+      gh_pages_build_type: "legacy",
+      gh_pages_source_branch: "main_old",
+      gh_pages_source_path: "/docs",
+      has_wiki: true,
+      homepage: null,
+      private_vulnerability_reporting_enabled: true,
+      web_commit_signoff_required: true,
+      secrets+: [
+        orgs.newRepoSecret('SONAR_TOKEN') {
+          value: "********",
+        },
+      ],
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('foo') {
+          is_admin_enforced: true,
+          required_approving_review_count: 0,
+          required_status_checks: [],
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },    
     newDaanseRepo('org.eclipse.daanse.assert.pdf') {
       description: "Repository for the asserts on pdf",
     },
