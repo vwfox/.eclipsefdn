@@ -131,6 +131,9 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.mdx') {
       description: "Repository for the mdx - multi dimensional expressions",
     },
+    newDaanseRepo('org.eclipse.daanse.operation') {
+      description: "Repository for the operation",
+    },
     newDaanseRepo('org.eclipse.daanse.pom') {
       description: "Repository for the maven poms",
     },
