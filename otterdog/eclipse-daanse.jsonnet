@@ -125,9 +125,6 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.jdbc.db') {
       description: "Repository for the jdbc related database utils",
     },
-    newDaanseRepo('org.eclipse.daanse.jdbc.loader.csv') {
-      description: "Repository for the jdbc dataloader from csv",
-    },
     newDaanseRepo('org.eclipse.daanse.mdx') {
       description: "Repository for the mdx - multi dimensional expressions",
     },
