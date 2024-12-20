@@ -21,7 +21,7 @@ local newDaanseRepo(repoName, default_branch = 'main') = orgs.newRepo(repoName) 
   ],
 };
 
-orgs.newOrg('eclipse-daanse') {
+orgs.newOrg('technology.daanse', 'eclipse-daanse') {
 
   settings+: {
     description: "The Eclipse Daanse Project - Data Analysis Services",
