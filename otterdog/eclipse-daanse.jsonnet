@@ -164,6 +164,9 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.diagram') {
       description: "Repository for the diagram visualisation",
     },
+    newDaanseRepo('org.eclipse.daanse.dmv') {
+      description: "Repository for the dmv language",
+    },
     newDaanseRepo('org.eclipse.daanse.etl') {
       description: "Repository for the etl modules",
     },
